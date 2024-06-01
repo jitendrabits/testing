@@ -94,11 +94,17 @@ class AdminProductLocators:
 
 
 class AdminList:
-        USER_LIST=""
-        BRAND_LIST=""
-        CATEGORY_LIST=""
-        PRODUCT_LIST=""
-        ORDER_LIST=""
+        PRODUCT_AVAILABLE_QTY='//input[@name="availableQty"]'
+        SMALL_DESCRIPTION="//textarea[@name='productSmallDescription']"
+        PRODUCT_VIDEO="//input[@name='productVideo']"
+        PRODUCT_DESCRIPTION="//textarea[@name='productDescription']"
+        PRODUCT_IMAGE="//input[@type='file' and @name='productMainImage']"
+        ADD_PRODUCT="//button[@type='submit']"
+#         USER_LIST=""
+#         BRAND_LIST=""
+#         CATEGORY_LIST=""
+#         PRODUCT_LIST=""
+#         ORDER_LIST=""
 
 
 
