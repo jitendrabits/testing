@@ -68,6 +68,9 @@ def selenium(driver,login_url):
     assert "admin" in homepage_header.text
     yield driver
 
+
+    
+
 def test_check_all_modules_available(selenium):
     assert "Home" in selenium.find_element(By.XPATH,HomePageLocators.NAVBAR_TAG).text
     assert "Products" in selenium.find_element(By.XPATH,HomePageLocators.NAVBAR_TAG).text
