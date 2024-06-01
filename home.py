@@ -50,12 +50,12 @@ def selenium(driver,login_url):
     time.sleep(2)
     driver.refresh()
     homepage_header = driver.find_element(By.XPATH,HomePageLocators.USER_NAME)
-    assert "Jitendra Kumar Shah" in homepage_header.text
+    assert "admin" in homepage_header.text
     yield driver
 
 def test_check_all_modules_available(selenium):
-    assert "Home" in selenium.find_element(By.XPATH,HomePageLocators.HOME_TAG%str('Home')).text
-    assert "Products" in selenium.find_element(By.XPATH,HomePageLocators.HOME_TAG%str('Products')).text
-    assert "Search" in selenium.find_element(By.XPATH,HomePageLocators.HOME_TAG%str('Search')).text
+    assert "Home" in selenium.find_element(By.XPATH,HomePageLocators.NAVBAR_TAG%str('Home')).text
+    assert "Products" in selenium.find_element(By.XPATH,HomePageLocators.NAVBAR_TAG%str('Products')).text
+    assert "Search" in selenium.find_element(By.XPATH,HomePageLocators.NAVBAR_TAG%str('Search')).text
    
  

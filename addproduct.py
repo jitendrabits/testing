@@ -30,7 +30,9 @@ driver = webdriver.Chrome(service=s, options=options)
 email="//input[@name='email']"
 pwd="//input[@name='password']"
 btn="//button[text()='Login']"
-extension_page = 'http://localhost:3002'
+# extension_page = 'http://localhost:3002'
+extension_page = 'https://admin-lilac-five.vercel.app'
+
 time.sleep(5)
 driver.get(extension_page)
 driver.maximize_window()
@@ -54,7 +56,7 @@ time.sleep(5)
 DIR="C:/devops-bookstore/bookstore/booksimg/cook.jpg"
 
 def addBrand():
-    driver.get("http://localhost:3002/brands")
+    driver.get("https://admin-lilac-five.vercel.app/brands")
     driver.find_element(By.XPATH, AdminBrandLocators.ADD_BRAND_NAME).send_keys("brandtest")
     front = WebDriverWait(driver, 10).until(EC.visibility_of_element_located((By.XPATH,"//select[@name='show_hide']")))
     front.click()
@@ -64,7 +66,7 @@ def addBrand():
 
 
 def addCategory():
-    driver.get("http://localhost:3002/categorys")
+    driver.get("https://admin-lilac-five.vercel.app/categorys")
     driver.find_element(By.XPATH, AdminCategoryLocators.ADD_CATEGORY_NAME).send_keys("categorytest")
     front = WebDriverWait(driver, 10).until(EC.visibility_of_element_located((By.XPATH,"//select[@name='showHide']")))
     front.click()
@@ -78,7 +80,7 @@ def addCategory():
 
 
 def addproduct():
-    driver.get("http://localhost:3002/products")
+    driver.get("https://admin-lilac-five.vercel.app/products")
     driver.find_element(By.XPATH, AdminProductLocators.PRODUCT_NAME).send_keys("productA")
     front = WebDriverWait(driver, 10).until(EC.visibility_of_element_located((By.XPATH, "//select[@name='showHide']")))
     front.click()
@@ -114,7 +116,7 @@ def addproduct():
 table_data = []
 
 def orderlist():
-    driver.get("http://localhost:3002/orders/list")
+    driver.get("https://admin-lilac-five.vercel.app/orders/list")
     table = driver.find_element(By.CLASS_NAME, "table-md")
 
     rows = table.find_elements(By.XPATH, "//tbody/tr")
@@ -130,16 +132,15 @@ def orderlist():
         
         table_data.append(row_data)
 
-print(table_data,"jjdsk")
+print(table_data,"table")
 
 
 
 
-
-
-orderlist()
-
+addBrand()
+# addCategory()
 # addproduct()
+# orderlist()
 
 # time.sleep(500)
 driver.quit()

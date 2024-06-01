@@ -12,6 +12,7 @@ class LoginPageLocators:
 #home page
 class HomePageLocators:
         NAVBAR_TAG="//label[text()='%s']"
+        USER_NAME="//*[@id='root']/div/div[1]/div/div[4]/a"
 
 #update account 
 
@@ -19,7 +20,8 @@ class HomePageLocators:
 class OrderPlaceLocators:
         PRODUCT_PAGE="//li//label[text()='Products']"
         ADD_MORE_ITEMS=""
-        SELECT_BOOK="//h3[@class='product-heading' and text()='%s']"
+        # SELECT_BOOK="//h3[@class='product-heading' and text()='%s']"
+        SELECT_BOOK="//*[@id='root']/div/div[3]/div[2]/div/div/a[1]"
         ADD_TO_CART="//span[text()='Add To Cart']"
         CHECKOUT_BUTTON="//button[@class='btn-checkout']"
         SELECT_ADDRESS="//input[@type='checkbox']"
@@ -33,7 +35,7 @@ class OrderPlaceLocators:
 
 #Search Product
 class SearchProduct:
-        SEARCH_PRODUCT
+        SEARCH_PRODUCT=""
 
 #Browse Product
 class BrowseProduct:

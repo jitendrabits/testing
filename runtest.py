@@ -2,7 +2,7 @@ import pytest
 
 # Define the order of test modules to run
 test_modules = [
-    "home.py"
+    "orderplace.py"
 ]
 
 if __name__ == "__main__":

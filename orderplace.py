@@ -8,7 +8,7 @@ import os
 from selenium.webdriver.chrome.service import Service as ChromeService
 from webdriver_manager.chrome import ChromeDriverManager
 
-from locators import LoginPageLocators,HomePageLocators
+from locators import LoginPageLocators,HomePageLocators,OrderPlaceLocators
 @pytest.fixture(scope="module")
 def driver():
     # Initialize WebDriver
@@ -45,17 +45,32 @@ def selenium(driver,login_url):
     login_button = driver.find_element(By.XPATH,LoginPageLocators.LOGIN_BUTTON)
     login_button.click()
 
+    driver.find_element(By.XPATH,OrderPlaceLocators.PRODUCT_PAGE).click()
+    driver.find_element(By.XPATH,OrderPlaceLocators.SELECT_BOOK).click()
+    driver.find_element(By.XPATH,OrderPlaceLocators.PRODUCT_PAGE).click()
+    driver.find_element(By.XPATH,OrderPlaceLocators.ADD_TO_CART).click()
+    driver.find_element(By.XPATH,OrderPlaceLocators.CHECKOUT_BUTTON).click()
+    driver.find_element(By.XPATH,OrderPlaceLocators.SELECT_ADDRESS).click()
+    driver.find_element(By.XPATH,OrderPlaceLocators.PROCESS_TO_PAYMENT).click()
+    driver.find_element(By.XPATH,OrderPlaceLocators.PAYMENT_METHOD).click()
+    driver.find_element(By.XPATH,OrderPlaceLocators.CONFIRM_ORDER).click()
+    driver.find_element(By.XPATH,OrderPlaceLocators.ORDER_DETAILS).click()
+
+
+
+
+
     
 
     time.sleep(2)
     driver.refresh()
     homepage_header = driver.find_element(By.XPATH,HomePageLocators.USER_NAME)
-    assert "Jitendra Kumar Shah" in homepage_header.text
+    assert "admin" in homepage_header.text
     yield driver
 
 def test_check_all_modules_available(selenium):
-    assert "Home" in selenium.find_element(By.XPATH,HomePageLocators.HOME_TAG).text
-    assert "Products" in selenium.find_element(By.XPATH,HomePageLocators.PRODUCT_TAG).text
-    assert "Search" in selenium.find_element(By.XPATH,HomePageLocators.SEARCH_TAG).text
+    assert "Home" in selenium.find_element(By.XPATH,HomePageLocators.NAVBAR_TAG).text
+    assert "Products" in selenium.find_element(By.XPATH,HomePageLocators.NAVBAR_TAG).text
+    assert "Search" in selenium.find_element(By.XPATH,HomePageLocators.NAVBAR_TAG).text
    
  
