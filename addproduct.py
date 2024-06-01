@@ -53,6 +53,9 @@ time.sleep(5)
 # yes="//option[text()='Yes']"
 
 # driver.find_element(By.XPATH,"//input[@name='name']").send_keys("jitendra")
+
+
+
 DIR="C:/devops-bookstore/bookstore/booksimg/cook.jpg"
 
 def addBrand():
