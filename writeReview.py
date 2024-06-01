@@ -60,6 +60,8 @@ def selenium(driver,login_url):
     brand = WebDriverWait(driver, 10).until(EC.visibility_of_element_located((By.XPATH,"//*[@id='root']/div/div[3]/div[2]/form/div/select[2]")))
     brand.click()
     WebDriverWait(driver, 10).until(EC.visibility_of_element_located((By.XPATH, BrowseProduct.SELECT_CATEGORY % str("Wiley")))).click()
+    WebDriverWait(driver, 15).until(EC.visibility_of_element_located((By.XPATH, BrowseProduct.SELECT_CATEGORY % str("class-button")))).click()
+    
     driver.find_element(By.XPATH,BrowseProduct.SELECT_PRODUCT).click()
     yield driver
 
@@ -67,5 +69,6 @@ def test_check_all_modules_available(selenium):
     assert "Home" in selenium.find_element(By.XPATH,HomePageLocators.NAVBAR_TAG%str('Home')).text
     assert "Products" in selenium.find_element(By.XPATH,HomePageLocators.NAVBAR_TAG%str('Products')).text
     assert "Search" in selenium.find_element(By.XPATH,HomePageLocators.NAVBAR_TAG%str('Search')).text
+    assert "Search" in selenium.find_element(By.XPATH,HomePageLocators.NAVBAR_TAG%str('CLICK')).text
    
  
